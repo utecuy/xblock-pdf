@@ -1,4 +1,4 @@
-"""Setup for pdfXBlock."""
+"""Setup for pdf XBlock."""
 
 import os
 from setuptools import setup
@@ -15,8 +15,8 @@ def package_data(pkg, root):
 
 
 setup(
-    name='pdf-xblock',
-    version='0.1',
+    name='xblock-pdf',
+    version='0.1.0',
     description='This XBlock provides an easy way to embed a PDF.',
     packages=[
         'pdf',
