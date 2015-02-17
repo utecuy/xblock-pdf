@@ -16,7 +16,7 @@ def package_data(pkg, root):
 
 setup(
     name='xblock-pdf',
-    version='0.1.0',
+    version='0.2.0',
     description='This XBlock provides an easy way to embed a PDF.',
     packages=[
         'pdf',
