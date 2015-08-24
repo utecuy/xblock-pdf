@@ -108,6 +108,18 @@ class pdfXBlock(XBlock):
         return frag
 
     @XBlock.json_handler
+    def on_download(self, data, suffix=''):
+        """
+        The download file event handler
+        """
+        event_type = 'edx.pdf.downloaded'
+        event_data = {
+            'url': self.url,
+            'source_url': self.source_url,
+        }
+        self.runtime.publish(self, event_type, event_data)
+
+    @XBlock.json_handler
     def save_pdf(self, data, suffix=''):
         """
         The saving handler.
