@@ -77,6 +77,12 @@ class pdfXBlock(XBlock):
         }
         html = self.render_template('static/html/pdf_view.html', context)
 
+        event_type = 'edx.pdf.loaded'
+        event_data = {
+            'url': self.url,
+        }
+        self.runtime.publish(self, event_type, event_data)
+
         frag = Fragment(html)
         frag.add_javascript(self.load_resource("static/js/pdf_view.js"))
         frag.initialize_js('pdfXBlockInitView')
