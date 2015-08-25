@@ -9,8 +9,7 @@ function pdfXBlockInitView(runtime, element) {
     $(function () {
         element.find('.pdf-download-button').on('click', function () {
             var handlerUrl = runtime.handlerUrl(element, 'on_download');
-            $.post(handlerUrl, '{}').done(function (response) {
-            });
+            $.post(handlerUrl, '{}');
         });
     });
 }
