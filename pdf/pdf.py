@@ -80,6 +80,7 @@ class pdfXBlock(XBlock):
         event_type = 'edx.pdf.loaded'
         event_data = {
             'url': self.url,
+            'source_url': self.source_url,
         }
         self.runtime.publish(self, event_type, event_data)
 
