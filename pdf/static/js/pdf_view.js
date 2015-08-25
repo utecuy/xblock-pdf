@@ -7,7 +7,7 @@ function pdfXBlockInitView(runtime, element) {
     if(element.innerHTML) element = $(element);
 
     $(function () {
-        $(element).find('.pdf-download-button').bind('click', function () {
+        element.find('.pdf-download-button').on('click', function () {
             var handlerUrl = runtime.handlerUrl(element, 'on_download');
             $.post(handlerUrl, '{}').done(function (response) {
             });
