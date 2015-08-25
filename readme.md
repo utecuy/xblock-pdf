@@ -4,8 +4,13 @@
 
 > Course component (Open edX XBlock) that provides an easy way to embed a PDF
 
+## Features
+
 - Download button available
 - (Optional) Source document download button, for example to provide your PPT file
+- Create tracking logs:
+  - `edx.pdf.loaded` when a student loads the PDF
+  - `edx.pdf.downloaded` when a student downloads the PDF
 
 ## Customize the XBlock
 
