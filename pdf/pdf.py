@@ -77,6 +77,13 @@ class pdfXBlock(XBlock):
         }
         html = self.render_template('static/html/pdf_view.html', context)
 
+        event_type = 'edx.pdf.loaded'
+        event_data = {
+            'url': self.url,
+            'source_url': self.source_url,
+        }
+        self.runtime.publish(self, event_type, event_data)
+
         frag = Fragment(html)
         frag.add_javascript(self.load_resource("static/js/pdf_view.js"))
         frag.initialize_js('pdfXBlockInitView')
@@ -100,6 +107,18 @@ class pdfXBlock(XBlock):
         frag.add_javascript(self.load_resource("static/js/pdf_edit.js"))
         frag.initialize_js('pdfXBlockInitEdit')
         return frag
+
+    @XBlock.json_handler
+    def on_download(self, data, suffix=''):
+        """
+        The download file event handler
+        """
+        event_type = 'edx.pdf.downloaded'
+        event_data = {
+            'url': self.url,
+            'source_url': self.source_url,
+        }
+        self.runtime.publish(self, event_type, event_data)
 
     @XBlock.json_handler
     def save_pdf(self, data, suffix=''):
