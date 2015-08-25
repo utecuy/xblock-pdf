@@ -59,3 +59,7 @@ Then, preferably in a [virtualenv](https://virtualenv.pypa.io), run
 
 
 Then, run `grunt test` to assess code quality.
+
+## License
+
+GNU Affero General Public License 3.0 (AGPL 3.0)
