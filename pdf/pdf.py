@@ -4,10 +4,11 @@ import pkg_resources
 from django.template import Context, Template
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String, Boolean
+from xblock.fields import Scope, String, Boolean
 from xblock.fragment import Fragment
 
-class pdfXBlock(XBlock):
+
+class PdfBlock(XBlock):
 
     '''
     Icon of the XBlock. Values : [other (default), video, problem]
@@ -17,30 +18,42 @@ class pdfXBlock(XBlock):
     '''
     Fields
     '''
-    display_name = String(display_name="Display Name",
+    display_name = String(
+        display_name="Display Name",
         default="PDF",
         scope=Scope.settings,
-        help="This name appears in the horizontal navigation at the top of the page.")
+        help="This name appears in the horizontal navigation at the top of the page."
+    )
 
-    url = String(display_name="PDF URL",
+    url = String(
+        display_name="PDF URL",
         default="http://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf",
         scope=Scope.content,
-        help="The URL for your PDF.")
+        help="The URL for your PDF."
+    )
 
-    allow_download = Boolean(display_name="PDF Download Allowed",
+    allow_download = Boolean(
+        display_name="PDF Download Allowed",
         default=True,
         scope=Scope.content,
-        help="Display a download button for this PDF.")
+        help="Display a download button for this PDF."
+    )
 
-    source_text = String(display_name="Source document button text",
+    source_text = String(
+        display_name="Source document button text",
         default="",
         scope=Scope.content,
-        help="Add a download link for the source file of your PDF. Use it for example to provide the PowerPoint file used to create this PDF.")
+        help="Add a download link for the source file of your PDF. "
+             "Use it for example to provide the PowerPoint file used to create this PDF."
+    )
 
-    source_url = String(display_name="Source document URL",
+    source_url = String(
+        display_name="Source document URL",
         default="",
         scope=Scope.content,
-        help="Add a download link for the source file of your PDF. Use it for example to provide the PowerPoint file used to create this PDF.")
+        help="Add a download link for the source file of your PDF. "
+             "Use it for example to provide the PowerPoint file used to create this PDF."
+    )
 
     '''
     Util functions
@@ -127,7 +140,7 @@ class pdfXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.url = data['url']
-        self.allow_download = True if data['allow_download'] == "True" else False # Str to Bool translation
+        self.allow_download = True if data['allow_download'] == "True" else False  # Str to Bool translation
         self.source_text = data['source_text']
         self.source_url = data['source_url']
 
