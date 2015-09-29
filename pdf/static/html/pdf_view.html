@@ -2,19 +2,19 @@
   <h2>{{ display_name }}</h2>
   <object data="{{ url }}" type="application/pdf" width="100%" height="600">
     <p>
-      Vous ne semblez pas avoir de quoi visualiser un PDF dans votre navigateur…
+      Parece que no tienes un plugin para ver PDF en tu navegador.
     </p>
   </object>
   {% if allow_download or source_url != "" %}
   <ul>
     {% if allow_download %}
     <li class="pdf-download-button">
-      <a href="{{ url }}" download>Télécharger le fichier PDF</a>
+      <a href="{{ url }}" download>Descargar el archivo PDF</a>
     </li>
     {% endif %}
     {% if source_url != "" %}
     <li class="pdf-download-button">
-      <a href="{{ source_url }}" download>{% if source_text == "" %}Télécharger le fichier source{% else %}{{ source_text }}{% endif %}</a>
+      <a href="{{ source_url }}" download>{% if source_text == "" %}Descargar el archivo fuente{% else %}{{ source_text }}{% endif %}</a>
     </li>
     {% endif %}
   </ul>
